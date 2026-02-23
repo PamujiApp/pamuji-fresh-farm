@@ -3,85 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard P&E Fresh Farm</title>
+    <title>P&E Fresh Farm</title>
     <style>
-        :root {
-            --primary-green: #2e7d32;
-            --bg-color: #f4f7f6;
-        }
+        /* Menghilangkan semua margin dan membuat tampilan penuh layar */
         body, html { 
-            margin: 0; padding: 0; height: 100%; width: 100%;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            overflow: hidden;
+            margin: 0; 
+            padding: 0; 
+            height: 100%; 
+            width: 100%; 
+            overflow: hidden; 
+            background-color: #f4f7f6;
         }
-        /* Dashboard Styling */
-        #dashboard {
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            height: 100vh; text-align: center; padding: 20px; box-sizing: border-box;
+        /* Mengatur iframe agar memenuhi seluruh browser */
+        iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
         }
-        h1 { color: var(--primary-green); margin-bottom: 30px; }
-        .menu-container {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px; width: 100%; max-width: 900px;
-        }
-        .card {
-            background: white; padding: 25px; border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border-bottom: 5px solid var(--primary-green);
-        }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-        .card h3 { margin: 0; color: #333; }
-        .card p { color: #666; font-size: 0.9em; margin-top: 10px; }
-
-        /* App Viewer Styling */
-        #app-viewer { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; }
-        iframe { width: 100%; height: calc(100% - 40px); border: none; }
-        .back-btn { 
-            height: 40px; background: #333; color: white; display: flex; 
-            align-items: center; padding: 0 20px; cursor: pointer; font-size: 14px;
-        }
-        .back-btn:hover { background: #000; }
     </style>
 </head>
 <body>
 
-    <div id="dashboard">
-        <h1>P&E Fresh Farm System</h1>
-        <div class="menu-container">
-            <div class="card" onclick="openApp('https://script.google.com/macros/s/AKfycbyNjhco7puA58A9Z8m7ytVPv7O6I2nKdv_xAEtpU4BBdhx0ocCc-7F6Rj3ip4w--c62Bw/exec')">
-                <h3>P&E Fresh Farm</h3>
-                <p>Aplikasi Utama Input Panen</p>
-            </div>
-            <div class="card" onclick="openApp('https://script.google.com/macros/s/AKfycbwJ9_E9ALipHmUcE49RSRZnpwF8PE-2dlWiEMBzdT-qBdelLISOgyH6IOYc8_o1DohtAg/exec')">
-                <h3>MT1-2026 Suji</h3>
-                <p>Sistem Manajemen MT1</p>
-            </div>
-            <div class="card" onclick="openApp('https://script.google.com/macros/s/AKfycbxq6qlHjX3Nw0DqCDinpuE5zhychUGAov0DRNg0LL7wUkqjbsc613zwNq9y-a3VxgUk/exec')">
-                <h3>MT2-2025 Suji</h3>
-                <p>Sistem Manajemen MT2</p>
-            </div>
-        </div>
-    </div>
+    <iframe src="https://script.google.com/macros/s/AKfycbyNjhco7puA58A9Z8m7ytVPv7O6I2nKdv_xAEtpU4BBdhx0ocCc-7F6Rj3ip4w--c62Bw/exec"></iframe>
 
-    <div id="app-viewer">
-        <div class="back-btn" onclick="closeApp()">⬅ Kembali ke Menu Utama</div>
-        <iframe id="app-frame" src=""></iframe>
-    </div>
-
-    <script>
-        function openApp(url) {
-            document.getElementById('app-frame').src = url;
-            document.getElementById('app-viewer').style.display = 'block';
-            document.getElementById('dashboard').style.display = 'none';
-        }
-
-        function closeApp() {
-            document.getElementById('app-viewer').style.display = 'none';
-            document.getElementById('dashboard').style.display = 'flex';
-            document.getElementById('app-frame').src = '';
-        }
-    </script>
 </body>
 </html>
